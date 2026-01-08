@@ -1,0 +1,32 @@
+---
+import OurHistory from '../../components/OurHistory.astro';
+import Values from '../../components/Values.astro'
+---
+
+<section>
+  <article>
+    <div>
+      <OurHistory />
+    </div>
+    <div>
+      <Values />
+    </div>
+  </article>
+</section>
+
+<style>
+  section { 
+    padding: 100px 40px;
+  }
+
+  article { 
+    display: flex;
+    max-width: var(--max-width);
+    margin: auto;
+    gap: 30px;
+  }
+
+  div { 
+    width: 50%;
+  }
+</style>
