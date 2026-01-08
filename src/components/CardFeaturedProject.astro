@@ -1,0 +1,28 @@
+---
+interface Props { 
+  img: string
+  place: string
+  details: string
+}
+
+const {img, place, details}: Props = Astro.props
+--- 
+
+<a href="#">
+  <img src={img} alt="">
+  <div>
+    <h5>{place}</h5>
+    <p>{details}</p>
+  </div>
+</a>
+
+<style>
+  a { 
+    width: 100%;
+  }
+
+  img { 
+    width: 100%;
+  }
+
+</style>

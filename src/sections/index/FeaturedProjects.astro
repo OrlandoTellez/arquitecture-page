@@ -1,0 +1,79 @@
+---
+import CardFeaturedProject from '../../components/CardFeaturedProject.astro';
+import image_1 from '../../../public/images/proyecto-1.jpeg';
+import image_2 from '../../../public/images/proyecto-2.jpeg';
+
+const projects = [
+ { 
+ img: image_1.src, 
+ place: "Villa Horizonte",
+ details: "Residencial — Mallorca, España"
+ },
+{ 
+ img: image_2.src, 
+ place: "Centro cultural Norte",
+ details: "Publico — Bilbao, España",
+ },
+{ 
+ img: image_1.src, 
+ place: "Torre Prisma",
+ details: "Comercial — Ciudad de Mexico"
+ },
+
+]
+
+---
+
+<section>
+  <article>
+    <div class="text">
+      <div>
+        <span>Portafolio</span>
+        <h3>Proyectos destacados</h3>
+      </div>
+      <div>
+        <a href="#">Ver todos los proyectos -></a>
+      </div>
+    </div>
+    <div class="projects">
+      { 
+        projects.map((project) => (
+        <CardFeaturedProject 
+        img={project.img} 
+        place={project.place} 
+        details={project.details}
+        />
+        ))
+      }
+  </article>
+</section>
+
+<style>
+  section { 
+    padding: 20px 40px;
+  }
+
+  span { 
+    color: #cfb47c;
+    font-size: 1.25rem;
+  }
+
+  h3 { 
+    font-size: 2.25rem;
+    margin-top: 15px;
+  }
+  
+  .projects { 
+    margin-top: 25px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .text { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
