@@ -1,0 +1,80 @@
+---
+import CardTeam from '../../components/CardTeam.astro';
+import team_1 from '../../../public/images/team-1.jpeg'
+import team_2 from '../../../public/images/team-2.jpeg'
+import team_3 from '../../../public/images/team-3.jpeg'
+
+const team = [
+  { 
+    img: team_1.src,
+    name: "Elena Vega",
+    rol: "Arquitecta principal y fundadora",
+    description: "Con más de 15 años de experiencia internacional, Elena lidera la visión creativa del estudio con un enfoque en la sostenibilidad y la innovación."
+    },
+    { 
+    img: team_2.src,
+    name: "Carlos Mendez",
+    rol: "Director de proyectos",
+    description: "Especialista en gestión de obras complejas y detalles constructivos, Carlos asegura que cada diseño se materialice con la máxima calidad."
+    },
+   { 
+    img: team_3.src,
+    name: "Sofía Alarcon",
+    rol: "Diseñadora de interiores",
+    description: "Apasionada por los materiales y la luz, Sofía crea espacios interiores que aportan calidez y carácter a la arquitectura del estudio."
+    },
+
+]
+---
+
+<section>
+  <article>
+    <div class="text">
+      <h3>Nuestro equipo</h3>
+      <p>Un grupo diverso de arquitectos, diseñadores y pensadores unidos por la pasión por crear espacios excepcionales.</p>
+    </div>
+    <div class="team">
+      {
+      team.map((team) => (
+      <CardTeam 
+      img={team.img}
+      name={team.name}
+      rol={team.rol}
+      description={team.description}
+      />
+      ))
+      }
+    </div>
+  </article>
+</section>
+
+<style>
+  section { 
+    width: 100%;
+    padding: 40px 40px 120px 40px;
+  }
+
+  article { 
+    max-width: var(--max-width);
+    margin: auto;
+  }
+
+  .text { 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 2.25rem;
+    margin-bottom: 30px;
+  } 
+
+  .team { 
+    margin-top: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  } 
+</style>
