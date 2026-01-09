@@ -1,0 +1,120 @@
+---
+import GoogleMap from '../../components/GoogleMap.astro';
+import cellphone from '../../assets/cellphone.svg';
+import location from '../../assets/location.svg';
+import mail from '../../assets/mail.svg';
+--- 
+
+<section>
+  <article>
+    <div class="text">
+      <h3>Información</h3>
+
+      <ul>
+          <li>
+            <span>
+              <img src={location.src} alt="location">
+            </span>
+            <div>
+              <h6>Visitanos</h6>
+              <p>Calle de la Arquitectura 123
+28001 Madrid, España</p>
+            </div>
+          </li>
+      
+          <li>
+            <span> 
+              <img src={mail.src} alt="mail icon">
+            </span>
+            <div>
+              <h6>Escríbanos</h6>
+              <p>info@archistudio.com
+proyectos@archistudio.com</p>
+            </div>
+          </li>
+
+          <li>
+            <span> 
+              <img src={cellphone.src} alt="mail icon">
+            </span>
+            <div>
+              <h6>Llámanos</h6>
+              <p>+34 912 345 678
+Lun - Vie, 9:00 - 18:00</p>
+            </div>
+          </li>
+
+      </ul>
+
+    <GoogleMap />
+    </div>
+
+    <div class="form">
+      <h3>Poner formulario aqui</h3>
+    </div>
+  </article>
+</section>
+
+<style>
+  section { 
+    width: 100%;
+    padding: 100px 40px;
+  }
+
+  article { 
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .text { 
+    width: 50%;
+  }
+
+  .form { 
+    width: 50%;
+  }
+
+  h3 { 
+    font-size: 2.25rem;
+    margin-bottom: 20px;
+  }
+
+  span { 
+    padding: 10px;
+    background-color: #eeeeee;
+    display: flex;
+  }
+
+  span img { 
+    width: 30px;
+  }
+
+  ul { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+   ul li {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+   }
+
+   h6 {
+    font-size: 1.25rem;
+   } 
+
+   li p { 
+     font-size: 1.10rem;
+    color: #717171;
+   }
+
+
+</style>
