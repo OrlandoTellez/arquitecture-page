@@ -1,0 +1,106 @@
+---
+import first_service from '../../assets/first_service.svg';
+import second_service from '../../assets/second_service.svg';
+import third_service from '../../assets/third_service.svg';
+import four_service from '../../assets/four_service.svg';
+--- 
+
+<section>
+  <article>
+      <ul>
+        <li>
+          <span>
+            <img src={first_service.src} alt="first service">
+          </span>
+          <div>
+            <h6>Diseño arquitectónico</h6>
+            <p>Desarrollamos proyectos integrales desde la conceptualización hasta la ejecución, enfocados en la funcionalidad y la estética atemporal.</p>
+          </div>
+        </li>
+    
+        <li>
+          <span> 
+            <img src={second_service.src} alt="seconde service">
+          </span>
+          <div>
+            <h6>Urbanismo</h6>
+            <p>Planificación y diseño de espacios urbanos que mejoran la calidad de vida y fomentan la sostenibilidad en las ciudades.</p>
+          </div>
+        </li>
+    
+        <li>
+          <span> 
+            <img src={third_service.src} alt="third service">
+          </span>
+          <div>
+            <h6>Interiorismo</h6>
+            <p>Creación de atmósferas interiores que dialogan con la arquitectura y reflejan la identidad de quienes las habitan.</p>
+          </div>
+        </li>
+    
+        <li>
+          <span> 
+            <img src={four_service.src} alt="four service">
+          </span>
+          <div>
+            <h6>Consultoria</h6>
+            <p>Creación de atmósferas interiores que dialogan con la arquitectura y reflejan la identidad de quienes las habitan.</p>
+          </div>
+        </li>
+    
+      </ul>
+
+  </article>
+</section>
+
+<style>
+  section { 
+    padding: 80px 40px;
+  }
+
+  article { 
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+  }
+
+  ul { 
+    width: 100%;
+    display: flex;
+    gap: 20px;
+  }
+
+  span { 
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 50%;
+    display: flex;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  }
+
+  ul li {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  img { 
+    width: 30px;
+  }
+
+  h6 { 
+    font-size: 1.7rem;
+  }
+
+  p { 
+    font-size: 1.25rem;
+    color: #717171;
+    margin-top: 10px;
+  }
+</style>
