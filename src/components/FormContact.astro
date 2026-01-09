@@ -1,0 +1,189 @@
+---
+import send from "../assets/send.svg";
+---
+
+<form action="/api/contact" method="POST">
+  <div class="form-group group-name">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="Tu nombre"
+        required
+      />
+    </div>
+    <div>
+      <label for="apellidos">Apellido</label>
+      <input
+        type="text"
+        id="apellidos"
+        name="apellidos"
+        placeholder="Tu apellido"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="correo">Correo electrónico</label>
+    <input
+      type="email"
+      id="correo"
+      name="correo"
+      placeholder="ejemplo@gmail.com"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="mensaje">Mensaje</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="4"
+      placeholder="Cuéntanos sobre tu proyecto..."
+      maxlength="500"
+      required></textarea>
+  </div>
+  <div class="form-checkbox">
+    <input type="checkbox" id="privacidad" name="privacidad" required />
+    <label for="privacidad">
+      Acepto la 
+      <a href="/legal/politica-de-privacidad">
+        política de privacidad
+      </a>
+    </label>
+  </div>
+  <button type="submit">
+    ENVIAR MENSAJE
+    <img src={send.src} alt="icono send" />
+  </button>
+</form>
+
+<script>
+  const form = document.querySelector("form")
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault()
+
+      const formData = new FormData(form) 
+
+      console.log(formData)
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      })
+
+      if (res.ok) {
+        alert("Mensaje enviado con éxito!")
+        form.reset()
+      } else {
+        alert("Error al enviar el mensaje.")
+      }
+    })
+  }
+</script>
+
+<style>
+  form {
+    background-color: var(--color-card);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e4e4e7;
+    width: 100%;
+    max-width: 800px;
+
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--color-fuente);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    color: var(--color-fuente);
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    background-color: var(--color-card);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 165, 0);
+  }
+
+  .group-name {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .group-name div {
+    width: 100%;
+  }
+
+  .form-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .form-checkbox input {
+    margin-right: 0.5rem;
+  }
+
+  .form-checkbox label {
+    color: #b3b1b1;
+  }
+
+  .form-checkbox a{
+    color: #b3b1b1;
+    border-bottom: 1px solid #b3b1b1;
+  }
+
+  .form-checkbox a:hover{
+    color: var(--color-fuente);
+    border-bottom: 1px solid var(--color-fuente);
+  }
+
+  #mensaje {
+    width: 100%;
+    min-height: 200px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    resize: vertical;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--color-secundario);
+    color: black;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  img {
+    width: 18px;
+  }
+</style>

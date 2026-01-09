@@ -3,6 +3,7 @@ import GoogleMap from '../../components/GoogleMap.astro';
 import cellphone from '../../assets/cellphone.svg';
 import location from '../../assets/location.svg';
 import mail from '../../assets/mail.svg';
+import FormContact from '../../components/FormContact.astro';
 --- 
 
 <section>
@@ -46,11 +47,11 @@ Lun - Vie, 9:00 - 18:00</p>
 
       </ul>
 
-    <GoogleMap />
+      <GoogleMap />
     </div>
 
     <div class="form">
-      <h3>Poner formulario aqui</h3>
+      <FormContact />
     </div>
   </article>
 </section>
@@ -67,10 +68,12 @@ Lun - Vie, 9:00 - 18:00</p>
     margin: auto;
     display: flex;
     flex-direction: row;
+    gap: 30px;
   }
 
   .text { 
     width: 50%;
+    height: 100%;
   }
 
   .form { 
