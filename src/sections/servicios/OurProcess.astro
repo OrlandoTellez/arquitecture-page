@@ -1,0 +1,117 @@
+---
+
+--- 
+
+<section>
+  <article>
+    <div class="text">
+      <h3>Nuestro Proceso</h3>
+      <p>Una metodología rigurosa y colaborativa que garantiza resultados excepcionales en cada etapa.</p>
+    </div> 
+    <ul class="proccess">
+        <li>
+          <span> 01
+          </span>
+          <div>
+            <h6>Analisis</h6>
+            <p>Estudio del sitio, necesidades y viabilidad.</p>
+          </div>
+        </li>
+    
+        <li>
+          <span> 02
+          </span>
+          <div>
+            <h6>Concepto</h6>
+            <p>Desarrollo de ideas y propuestas de diseño.</p>
+          </div>
+        </li>
+    
+        <li>
+          <span> 03
+          </span>
+          <div>
+            <h6>Desarrollo</h6>
+            <p>Planos técnicos y especificaciones detalladas.</p>
+          </div>
+        </li>
+    
+        <li>
+          <span> 04
+          </span>
+          <div>
+            <h6>Ejecución</h6>
+            <p>Supervisión de obra y control de calidad.</p>
+          </div>
+        </li>
+    
+      </ul>
+
+  </article>
+</section>
+
+<style>
+  section { 
+    padding: 120px 40px;
+    background-color: #222222;
+    color: white;
+  }
+
+  article { 
+    max-width: var(--max-width);
+    margin: auto;
+  }
+
+  .text { 
+    width: 100%;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+  }
+
+  h3 { 
+    font-size: 2.25rem;
+  }
+
+  .text p { 
+    font-size: 1.25rem;
+    color: #99a1af;
+  }
+
+  .proccess { 
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  span { 
+    font-size: 3rem;
+    font-weight: 700;
+    color: #cfb47c;
+  }
+
+  h6 { 
+    font-size: 1.25rem;
+  }
+
+  ul { 
+    margin-top: 40px;
+  }
+
+  ul li { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  ul li div { 
+    display: grid;
+    gap: 10px;
+
+  }
+
+  ul li div p { 
+    color: #99a1af;
+  }
+</style>
