@@ -1,0 +1,58 @@
+--- 
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const projects = await getCollection("projects");
+
+--- 
+
+<section>
+  <article>
+    <ul>
+        {projects.map((p: any) => (
+          <li>
+            <a href={`/proyectos/${p.slug}`}>
+              <Image
+                src={p.data.portada}
+                alt={p.data.title}
+                width={400}
+              />
+              <h2>{p.data.title}</h2>
+              <p>{p.data.description}</p>
+            </a>
+          </li>
+        ))}
+    </ul>
+  </article>
+</section>
+
+<style>
+  section { 
+    width: 100%;
+    padding: 100px 40px;
+  }
+
+  article { 
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+  }
+
+  ul { 
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  ul li a { 
+    display: grid;
+    gap: 10px;
+  }
+
+  ul img { 
+    width: 100%;
+
+    height: 400px;
+  }
+</style>

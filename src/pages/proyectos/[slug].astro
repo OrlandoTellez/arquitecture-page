@@ -1,0 +1,115 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+const project = await getEntry("projects", slug);
+
+if (!project) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await project.render();
+---
+
+<Layout>
+  <section>
+    <article class="hero" style={`background-image:  linear-gradient(
+                            0deg,
+                            rgba(0, 0, 0, 0.5),
+                            rgba(0, 0, 0, 0.5)
+                            ), url(${project.data.portada.src})`}> 
+      <div>
+        <span>{project.data.type}</span>
+        <h1>{project.data.title}</h1>
+        <p>{project.data.description}</p>
+      </div>
+    </article>
+    
+    <div class="content">
+      <Content />
+    </div>
+  </section>
+</Layout>
+
+
+<style>
+  .hero {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 40px;
+  }
+
+  .hero div { 
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    display: grid;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .hero h1 { 
+    font-size: 4rem;
+  }
+
+  .hero span { 
+    font-size: 1.25rem;
+    color: white;
+    background-color: #cfb47c;
+    width: 140px;
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    font-weight: bold;
+  }
+
+  .hero p { 
+    font-size: 1.25rem;
+  }
+
+  .content {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 100px 0px;
+  }
+
+  .content :global(p) {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #212121;
+  }
+
+  .content :global(h1) {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .content :global(h2) {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .content :global(h3) {
+    font-size: 1.75rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .content :global(ul), .content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+</style>
